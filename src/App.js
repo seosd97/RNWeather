@@ -15,6 +15,7 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import WeatherPage from './pages/weather';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
@@ -22,7 +23,7 @@ const App = () => {
   return (
     <>
       {/* <StatusBar barStyle="dark-content" /> */}
-      <SafeAreaView>
+      <SafeAreaView style={styles.body}>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
@@ -31,9 +32,7 @@ const App = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )} */}
-          <View style={styles.body}>
-            <Text>Hello RN</Text>
-          </View>
+          <WeatherPage />
         </ScrollView>
       </SafeAreaView>
     </>
