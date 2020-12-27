@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,40 +15,41 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import countries from 'i18n-iso-countries';
 import WeatherPage from './pages/weather';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
+  // TODO : Save Redux store later and set according to lang from Redux store
+  useEffect(() => {
+    countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    console.log('app effect1');
+  }, []);
+
   return (
     <>
       {/* <StatusBar barStyle="dark-content" /> */}
       <SafeAreaView style={styles.body}>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          {/* {global.HermesInternal == null ? null : (
+        {/* {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )} */}
-          <WeatherPage />
-        </ScrollView>
+        <WeatherPage />
       </SafeAreaView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: '#000000',
-  },
   engine: {
     position: 'absolute',
     right: 0,
   },
   body: {
     backgroundColor: Colors.white,
+    flex: 1,
   },
 });
 
