@@ -29,7 +29,11 @@ const App = () => {
 
   return (
     <>
-      {/* <StatusBar barStyle="dark-content" /> */}
+      <StatusBar
+        barStyle="dark-content"
+        networkActivityIndicatorVisible={true}
+        backgroundColor="transparent"
+      />
       <SafeAreaView style={styles.body}>
         {/* {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
