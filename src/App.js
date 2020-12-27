@@ -24,7 +24,6 @@ const App = () => {
   // TODO : Save Redux store later and set according to lang from Redux store
   useEffect(() => {
     countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
-    console.log('app effect1');
   }, []);
 
   return (
