@@ -18,7 +18,7 @@ const HourlyForecastList = ({forecastData, timezone}) => {
     <View style={styles.container}>
       <Text style={styles.titleText}>Hourly Forecast</Text>
       {/* TODO : Should change to FlatList */}
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {forecastData.map((w, i) => {
           return (i + 1) % 3 === 0 ? (
             <HourlyForecastItem

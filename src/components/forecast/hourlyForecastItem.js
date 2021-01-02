@@ -8,7 +8,7 @@ import normalize from 'react-native-normalize';
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    paddingHorizontal: normalize(5),
+    paddingHorizontal: normalize(10),
   },
   icon: {
     width: normalize(40),
@@ -20,7 +20,10 @@ const styles = StyleSheet.create({
   timeText: {
     fontSize: normalize(13),
   },
-  weatherText: {
+  popText: {
+    fontSize: normalize(14),
+  },
+  tempText: {
     fontSize: normalize(15),
   },
   devideLine: {
@@ -36,7 +39,7 @@ const DevideLine = () => <View style={styles.devideLine} />;
 
 const HourlyForecastItem = ({weather, timezone}) => {
   const timestamp = moment.unix(weather.dt).tz(timezone);
-  const isLastTime = timestamp.hour() >= 22;
+  const isLastTime = timestamp.hour() >= 21;
 
   return (
     <React.Fragment>
@@ -50,10 +53,10 @@ const HourlyForecastItem = ({weather, timezone}) => {
             }}
           />
         </View>
-        <Text style={styles.weatherText}>{`${Math.floor(
+        <Text style={styles.popText}>{`${Math.floor(
           weather.pop * 100,
         )}%`}</Text>
-        <Text style={styles.weatherText}>
+        <Text style={styles.tempText}>
           {TempUtils.tempToString(Math.floor(weather.temp))}
         </Text>
       </View>

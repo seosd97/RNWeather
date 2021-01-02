@@ -7,18 +7,9 @@
  */
 
 import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
 import countries from 'i18n-iso-countries';
 import WeatherPage from './pages/weather';
-
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
   // TODO : Save Redux store later and set according to lang from Redux store
@@ -31,7 +22,7 @@ const App = () => {
       <StatusBar
         barStyle="dark-content"
         networkActivityIndicatorVisible={true}
-        backgroundColor="transparent"
+        backgroundColor="#e3e3e3"
       />
       <SafeAreaView style={styles.body}>
         {/* {global.HermesInternal == null ? null : (

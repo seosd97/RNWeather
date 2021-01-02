@@ -93,7 +93,7 @@ const WeatherPage = () => {
   }, [location]);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {location && currentWeather && (
         <React.Fragment>
           <Header country={location.country.long_name} />
