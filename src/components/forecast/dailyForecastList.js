@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     fontSize: normalize(17),
     fontWeight: 'bold',
     marginBottom: normalize(15),
+    paddingLeft: normalize(5),
   },
   scrollContainer: {
     paddingHorizontal: normalize(5),
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
 const DailyForecastList = ({forecastData}) => {
   return (
     <View>
-      <Text style={styles.titleText}>일일 예보</Text>
+      <Text style={styles.titleText}>Daily Forecast</Text>
       <ScrollView style={styles.scrollContainer}>
         {forecastData.map((w, i) => {
           return (

@@ -8,12 +8,14 @@ import * as tempUtils from '../modules/temperature';
 import WeatherDetailElement from './weatherDetailElement';
 import DivideLine from './DivideLine';
 import DailyForecastList from './forecast/dailyForecastList';
+import HourlyForecastList from './forecast/hourlyForecastList';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
     paddingHorizontal: normalize(10),
+    marginBottom: 20,
   },
   locationContainer: {
     alignItems: 'flex-start',
@@ -169,6 +171,12 @@ const WeatherInfo = ({locationData, weatherData}) => {
           );
         })}
       </View>
+      <DivideLine />
+
+      <HourlyForecastList
+        forecastData={weatherData.hourly}
+        timezone={weatherData.timezone}
+      />
       <DivideLine />
 
       <DailyForecastList forecastData={weatherData.daily} />
