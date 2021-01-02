@@ -7,6 +7,7 @@ import moment from 'moment-timezone';
 import * as tempUtils from '../modules/temperature';
 import WeatherDetailElement from './weatherDetailElement';
 import DivideLine from './DivideLine';
+import DailyForecastList from './forecast/dailyForecastList';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +39,10 @@ const styles = StyleSheet.create({
   },
   monthText: {
     fontSize: normalize(15),
+    marginRight: 3,
+  },
+  timeText: {
+    fontSize: normalize(14),
   },
   currentWeatherContainer: {
     paddingTop: normalize(40),
@@ -95,12 +100,6 @@ const WeatherInfo = ({locationData, weatherData}) => {
           {locationData.locality.long_name}
         </Text>
         <View style={styles.dateContainer}>
-          {/* <Text>
-            {moment
-              .unix(weatherData.current.dt)
-              .tz(weatherData.timezone)
-              .format('hh:mm')}
-          </Text> */}
           <Text style={styles.weekText}>
             {moment
               .unix(weatherData.current.dt)
@@ -113,6 +112,12 @@ const WeatherInfo = ({locationData, weatherData}) => {
               .unix(weatherData.current.dt)
               .tz(weatherData.timezone)
               .format('D MMMM')}
+          </Text>
+          <Text style={styles.timeText}>
+            {moment
+              .unix(weatherData.current.dt)
+              .tz(weatherData.timezone)
+              .format('HH:mm')}
           </Text>
         </View>
       </View>
@@ -145,7 +150,7 @@ const WeatherInfo = ({locationData, weatherData}) => {
           let value = weatherData.current[d.key];
 
           if (d.key === 'sunrise' || d.key === 'sunset') {
-            value = moment.unix(value).tz(weatherData.timezone).format('hh:mm');
+            value = moment.unix(value).tz(weatherData.timezone).format('HH:mm');
           } else if (d.key === 'wind_speed') {
             value = `${value}m/s`;
           } else if (d.key === 'humidity') {
@@ -165,6 +170,8 @@ const WeatherInfo = ({locationData, weatherData}) => {
         })}
       </View>
       <DivideLine />
+
+      <DailyForecastList forecastData={weatherData.daily} />
     </View>
   );
 };

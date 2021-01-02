@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: '#e3e3e3',
     flex: 1,
   },
 });
